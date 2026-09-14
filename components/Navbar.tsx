@@ -42,9 +42,11 @@ export default function Navbar() {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
-        scrolled || open
-          ? "bg-black/95 backdrop-blur"
-          : "bg-linear-to-b from-black/80 to-transparent"
+        open
+          ? "bg-black"
+          : scrolled
+            ? "bg-black/95 backdrop-blur"
+            : "bg-linear-to-b from-black/80 to-transparent"
       }`}
     >
       <nav className="mx-auto flex h-26 max-w-6xl items-center justify-between px-5 sm:px-8">
@@ -99,7 +101,7 @@ export default function Navbar() {
       </nav>
 
       <div
-        className={`fixed inset-x-0 top-16 bottom-0 z-40 bg-black/95 backdrop-blur-sm transition-opacity duration-200 md:hidden ${
+        className={`fixed inset-x-0 top-16 bottom-0 z-40 bg-black transition-opacity duration-200 md:hidden ${
           open ? "visible opacity-100" : "invisible opacity-0"
         }`}
       >
