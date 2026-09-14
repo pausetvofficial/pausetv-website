@@ -70,7 +70,7 @@ export default async function HomePage() {
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
             <Link
-              href={settings?.heroCtaUrl ?? "/shows"}
+              href="/shows"
               className="rounded-full bg-brand-red px-8 py-3 text-sm font-semibold uppercase tracking-wider text-white transition-colors hover:bg-brand-red-dark"
             >
               {settings?.heroCtaLabel ?? "Watch Now"}
