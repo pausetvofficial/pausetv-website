@@ -1,0 +1,18 @@
+User-agent: *
+Allow: /
+Disallow: /studio/*
+Disallow: /.next/
+Disallow: /api/
+
+# Specific rules for major search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Crawl delay for other bots (in seconds)
+Crawl-delay: 1
+
+# Sitemap
+Sitemap: https://pausetv.com/sitemap.xml
