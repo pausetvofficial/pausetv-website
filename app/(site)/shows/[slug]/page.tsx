@@ -57,7 +57,14 @@ export async function generateMetadata({
               alt: video.title,
             },
           ]
-        : [],
+        : [
+            {
+              url: "/og-image.jpg",
+              width: 1200,
+              height: 630,
+              alt: video.title,
+            },
+          ],
     },
   };
 }

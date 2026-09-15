@@ -25,6 +25,14 @@ export const metadata: Metadata = {
     description:
       "Meet the host behind PauseTV and their journey in comedy and entertainment.",
     type: "profile",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "About the Host — PauseTV",
+      },
+    ],
   },
 };
 

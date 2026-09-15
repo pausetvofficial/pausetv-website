@@ -21,6 +21,14 @@ export const metadata: Metadata = {
     description:
       "Get in touch with the PauseTV team for booking, press, or general inquiries.",
     type: "website",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Contact & Booking — PauseTV",
+      },
+    ],
   },
 };
 

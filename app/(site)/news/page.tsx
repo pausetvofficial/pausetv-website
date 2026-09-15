@@ -23,6 +23,14 @@ export const metadata: Metadata = {
     description:
       "The latest news, press, and updates from PauseTV and entertainment media.",
     type: "website",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "News & Press — PauseTV",
+      },
+    ],
   },
 };
 

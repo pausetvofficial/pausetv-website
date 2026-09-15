@@ -25,6 +25,14 @@ export const metadata: Metadata = {
     description:
       "Credible News. Engaging Entertainment. We keep our audience informed, inspired, and entertained — one story at a time.",
     type: "website",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Credible News. Engaging Entertainment. We keep our audience informed, inspired, and entertained — one story at a time.",
+      },
+    ],
   },
 };
 

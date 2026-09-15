@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     siteName: "PAUSE TV NEWS LIMITED",
     images: [
       {
-        url: `${baseUrl}/og-image.jpeg`,
+        url: `${baseUrl}/og-image.jpg`,
         width: 1200,
         height: 630,
         alt: "Credible News. Engaging Entertainment. We keep our audience informed, inspired, and entertained — one story at a time.s",
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
     title: "PAUSE TV NEWS LIMITED",
     description:
       "Credible News. Engaging Entertainment. We keep our audience informed, inspired, and entertained — one story at a time.",
-    images: [`${baseUrl}/og-image.jpeg`],
+    images: [`${baseUrl}/og-image.jpg`],
   },
   appleWebApp: {
     capable: true,
