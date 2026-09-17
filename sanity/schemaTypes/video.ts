@@ -1,4 +1,4 @@
-import { defineField, defineType } from "sanity";
+import { defineArrayMember, defineField, defineType } from "sanity";
 import { PlayIcon } from "@sanity/icons/Play";
 
 export const video = defineType({
@@ -41,8 +41,11 @@ export const video = defineType({
     defineField({
       name: "description",
       title: "Description",
-      type: "text",
-      rows: 3,
+      type: "array",
+      of: [
+        defineArrayMember({ type: "block" }),
+        defineArrayMember({ type: "image", options: { hotspot: true } }),
+      ],
     }),
     defineField({
       name: "publishedAt",

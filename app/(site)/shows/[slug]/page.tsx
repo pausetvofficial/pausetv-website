@@ -2,9 +2,12 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
+import { PortableText } from "@portabletext/react";
 import { client } from "@/sanity/lib/client";
 import { VIDEO_QUERY, VIDEOS_QUERY } from "@/sanity/lib/queries";
 import { urlFor } from "@/sanity/lib/image";
+import { portableTextComponents } from "@/sanity/lib/portableTextComponents";
+import { toPlainText } from "@/sanity/lib/toPlainText";
 
 export const revalidate = 300;
 
@@ -30,11 +33,13 @@ export async function generateMetadata({
     };
   }
 
+  const description =
+    toPlainText(video.description) ||
+    "Watch this episode from PauseTV featuring sharp comedy, honest interviews, and breaking news.";
+
   return {
     title: `${video.title} — PauseTV`,
-    description:
-      video.description ||
-      "Watch this episode from PauseTV featuring sharp comedy, honest interviews, and breaking news.",
+    description,
     keywords: [
       video.title,
       "PauseTV",
@@ -44,9 +49,7 @@ export async function generateMetadata({
     ],
     openGraph: {
       title: video.title,
-      description:
-        video.description ||
-        "Watch this episode from PauseTV featuring sharp comedy, honest interviews, and breaking news.",
+      description,
       type: "video.episode",
       images: video.thumbnail
         ? [
@@ -149,7 +152,17 @@ export default async function VideoPage({
         </div>
 
         {video.description && (
-          <p className="mt-8 max-w-2xl text-white/70">{video.description}</p>
+          <div className="prose prose-invert mt-8 max-w-2xl prose-headings:font-display prose-a:text-brand-red">
+            {Array.isArray(video.description) ? (
+              <PortableText
+                value={video.description}
+                components={portableTextComponents}
+              />
+            ) : (
+              // Legacy documents saved before the description became rich text.
+              <p>{video.description}</p>
+            )}
+          </div>
         )}
       </div>
     </article>

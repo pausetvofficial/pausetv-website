@@ -4,6 +4,7 @@ import { PortableText } from "@portabletext/react";
 import { client } from "@/sanity/lib/client";
 import { HOST_QUERY, EVENTS_QUERY } from "@/sanity/lib/queries";
 import { urlFor } from "@/sanity/lib/image";
+import { portableTextComponents } from "@/sanity/lib/portableTextComponents";
 import SectionHeading from "@/components/SectionHeading";
 import EventCard from "@/components/EventCard";
 
@@ -106,7 +107,10 @@ export default async function AboutPage() {
       {host?.longBio && (
         <section className="bg-white py-20">
           <div className="prose prose-lg mx-auto max-w-3xl px-5 prose-headings:font-display prose-a:text-brand-red sm:px-8">
-            <PortableText value={host.longBio} />
+            <PortableText
+              value={host.longBio}
+              components={portableTextComponents}
+            />
           </div>
         </section>
       )}

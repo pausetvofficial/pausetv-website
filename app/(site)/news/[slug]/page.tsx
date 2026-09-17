@@ -5,6 +5,7 @@ import { PortableText } from "@portabletext/react";
 import { client } from "@/sanity/lib/client";
 import { NEWS_POST_QUERY, NEWS_QUERY } from "@/sanity/lib/queries";
 import { urlFor } from "@/sanity/lib/image";
+import { portableTextComponents } from "@/sanity/lib/portableTextComponents";
 import ImageCarousel from "@/components/ImageCarousel";
 
 export const revalidate = 300;
@@ -38,7 +39,9 @@ export async function generateMetadata({
       "entertainment",
       "article",
     ],
-    authors: post.author ? [{ name: post.author }] : [{ name: "PauseTV" }],
+    authors: post.author?.name
+      ? [{ name: post.author.name }]
+      : [{ name: "PauseTV" }],
     openGraph: {
       title: post.title,
       description:
@@ -47,7 +50,7 @@ export async function generateMetadata({
         "Read this latest news and press release from PauseTV.",
       type: "article",
       publishedTime: post.publishedAt,
-      authors: post.author ? [post.author] : ["PauseTV"],
+      authors: post.author?.name ? [post.author.name] : ["PauseTV"],
       images: post.coverImage
         ? [
             {
@@ -134,6 +137,29 @@ export default async function NewsPostPage({
           {post.title}
         </h1>
 
+        {post.author?.name && (
+          <div className="mt-4 flex items-center gap-3">
+            {post.author.photo && (
+              <span className="relative h-10 w-10 overflow-hidden rounded-full bg-white/10">
+                <Image
+                  src={urlFor(post.author.photo).width(80).height(80).url()}
+                  alt={post.author.name}
+                  fill
+                  className="object-cover"
+                />
+              </span>
+            )}
+            <div>
+              <p className="text-sm font-semibold text-white">
+                {post.author.name}
+              </p>
+              {post.author.role && (
+                <p className="text-xs text-white/50">{post.author.role}</p>
+              )}
+            </div>
+          </div>
+        )}
+
         {post.coverImage && (
           <ImageCarousel
             images={formattedImages}
@@ -144,7 +170,10 @@ export default async function NewsPostPage({
 
         {post.body && (
           <div className="prose prose-invert prose-lg mt-10 max-w-none prose-headings:font-display prose-a:text-brand-red">
-            <PortableText value={post.body} />
+            <PortableText
+              value={post.body}
+              components={portableTextComponents}
+            />
           </div>
         )}
       </div>

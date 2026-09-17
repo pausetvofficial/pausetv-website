@@ -11,8 +11,18 @@ export type Video = {
   youtubeUrl?: string;
   thumbnail?: unknown;
   category?: Category;
-  description?: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  description?: any;
   publishedAt?: string;
+};
+
+export type Author = {
+  _id: string;
+  name: string;
+  slug?: { current: string };
+  photo?: unknown;
+  role?: string;
+  bio?: string;
 };
 
 export type NewsPost = {
@@ -23,9 +33,10 @@ export type NewsPost = {
   coverImage?: unknown;
   galleryImages?: Array<unknown>;
   category?: Category;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   body?: any;
   publishedAt?: string;
-  author?: string;
+  author?: Author;
   description?: string;
 };
 

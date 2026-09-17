@@ -7,6 +7,7 @@ import { newsPost } from "./newsPost";
 import { event } from "./event";
 import { newsletterSubscription } from "./newsletterSubscription";
 import { category } from "./category";
+import { author } from "./author";
 
 export const schemaTypes = [
   siteSettings,
@@ -15,6 +16,7 @@ export const schemaTypes = [
   newsPost,
   event,
   category,
+  author,
   newsletterSubscription,
 ];
 

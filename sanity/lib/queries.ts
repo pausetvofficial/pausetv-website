@@ -68,6 +68,7 @@ export const NEWS_QUERY = defineQuery(`
   excerpt,
   coverImage,
   category->{ _id, title, slug },
+  author->{ _id, name, slug, photo },
   publishedAt
 }`);
 
@@ -79,6 +80,7 @@ export const FEATURED_NEWS_QUERY = defineQuery(`
   excerpt,
   coverImage,
   category->{ _id, title, slug },
+  author->{ _id, name, slug, photo },
   publishedAt
 }`);
 
@@ -91,6 +93,7 @@ export const NEWS_POST_QUERY = defineQuery(`
   coverImage,
   galleryImages,
   category->{ _id, title, slug },
+  author->{ _id, name, slug, photo, role, bio },
   body,
   publishedAt
 }`);

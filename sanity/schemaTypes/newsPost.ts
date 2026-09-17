@@ -52,6 +52,12 @@ export const newsPost = defineType({
       to: [{ type: "category" }],
     }),
     defineField({
+      name: "author",
+      title: "Author",
+      type: "reference",
+      to: [{ type: "author" }],
+    }),
+    defineField({
       name: "publishedAt",
       title: "Published At",
       type: "datetime",

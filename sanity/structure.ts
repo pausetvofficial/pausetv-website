@@ -46,6 +46,10 @@ export const structure: StructureResolver = (S) =>
         .icon(TagIcon)
         .child(S.documentTypeList("category").title("Categories")),
       S.listItem()
+        .title("Authors")
+        .icon(UserIcon)
+        .child(S.documentTypeList("author").title("Authors")),
+      S.listItem()
         .title("Newsletter Subscriptions")
         .icon(EnvelopeIcon)
         .child(

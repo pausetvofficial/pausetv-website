@@ -59,8 +59,8 @@ export default async function HomePage() {
               className="object-cover opacity-50"
             />
           ) : null}
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/20" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-transparent to-brand-red/20" />
+          <div className="absolute inset-0 bg-linear-to-t from-black via-black/60 to-black/20" />
+          <div className="absolute inset-0 bg-linear-to-r from-black/80 via-transparent to-brand-red/20" />
         </div>
 
         <div className="relative mx-auto max-w-6xl px-5 pt-16 sm:px-8">
@@ -109,7 +109,7 @@ export default async function HomePage() {
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {videos?.length ? (
               videos
-                .slice(0, 6)
+                .slice(0, 9)
                 .map((video: any) => (
                   <VideoCard key={video._id} video={video} />
                 ))
@@ -175,7 +175,7 @@ export default async function HomePage() {
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {news?.length ? (
               news
-                .slice(0, 6)
+                .slice(0, 9)
                 .map((post: any) => <NewsCard key={post._id} post={post} />)
             ) : (
               <p className="text-white/40">
